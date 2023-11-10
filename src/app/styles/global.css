@@ -1,0 +1,133 @@
+/* Estilos gerais da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: bisque;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos do cabeçalho */
+  header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  /* Estilos da lista de produtos */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .product {
+    width: 80%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  .product button, .edit-product-form button{
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .product, .edit-product-form{
+    background-color: burlywood;
+    width: 120px;
+    height: 280px;
+    font-size: small;
+    text-align: left;
+  }
+  
+  
+  .product h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .edit-product-form {
+    width: 80%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 4px;
+  }
+
+ .edit-product-form input{
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  .edit-product-form h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .edit-product-form p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .edit-product-form button {
+    margin-right: 1em;
+  }
+  /* barra de pesquisa */
+  .barra-pesquisa {
+    border-radius: 5px;
+    text-align: center;
+    width: 50%;
+    margin: 2em;
+    margin-left: 25%;
+    font-size: 1em;
+    padding: 5px;
+  }
+  
+  /* Estilos do formulário de adição de produto */
+  .add-product-form h2 {
+    text-align: center;
+  }
+  .add-product-form {
+    background-color: burlywood;
+    margin-left: 35%;
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .add-product-form label {
+    font-weight: bold;
+  }
+  
+  .add-product-form input[type="text"],
+  .add-product-form input[type="number"] {
+    width: 90%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-product-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-product-form button:hover {
+    background-color: #0056b3;
+  }
