@@ -4,11 +4,10 @@ import { useState } from 'react';
 import axios from '../api/api-produtos';
 import Modal from 'react-modal';
 
-const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
+const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products, lancamentos, setLancamentos }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedProduct, setEditedProduct] = useState({ ...product });
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [lancamentos, setLancamentos] = useState([]);
     const [newLancamento, setNewLancamento] = useState({ tipoLancamento: 'entrada', quantidade: 0 });
     const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false); // Novo estado para controle do modal de confirmação
     const [productToDelete, setProductToDelete] = useState(null); // Novo estado para armazenar o produto a ser excluído
@@ -23,7 +22,7 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
 
     const confirmarExclusao = () => {
         // Executa a exclusão do produto
-       deletarProduct(productToDelete.id);
+        deletarProduct(productToDelete.id);
         setIsDeleteConfirmationOpen(false);
     };
 
@@ -57,7 +56,7 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
 
     const confirmarExclusaoLancamento = () => {
         // Executa a exclusão do produto
-       deletarLancamento(lancamentoToDelete.id);
+        deletarLancamento(lancamentoToDelete.id);
         setIsDeleteLancamentoConfirmationOpen(false);
     };
 
@@ -204,6 +203,15 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
                             value={editedProduct.unidadeMedida}
                             onChange={handleInputChange}
                         /><br />
+                        Quantidade Maxima:<br />
+                        <input
+                            type="number"
+                            name="quantidadeMaxima"
+                            min={1}
+                            placeholder="Quantidade Maxima do Produto"
+                            value={editedProduct.quantidadeMaxima}
+                            onChange={handleInputChange}
+                        /><br />
                         <button onClick={handleSaveEdit}><BsFillCheckCircleFill color='green' size={20} /></button>
                         <button onClick={handleCancelEdit}><BsFillXCircleFill color='red' size={20} /></button>
                     </div>
@@ -218,6 +226,8 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
                     {product.quantidade}<br />
                     Unidade de Medida:
                     {product.unidadeMedida}<br />
+                    Quantidade Máxima:
+                    {product.quantidadeMaxima}<br />
                     <button onClick={handleEditClick}><FaPencilAlt color="blue" size={20} /></button>
                     <button onClick={() => deletarProductModal(product.id)}>
                         <FaMinusCircle color="red" size={20} />
@@ -256,7 +266,7 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
                             ))}
                         </tbody>
                     </table>)}
-                    
+
                     <form className='form-lancamento' onSubmit={handleLancamentoSubmit}>
                         <label htmlFor="lancamento-novo">Tipo de Lançamento:</label>
                         <select
@@ -291,7 +301,7 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
                 >
                     <h2>Confirmar Exclusão</h2>
                     {productToDelete && (
-                        <div>
+                        <div className='modal'>
                             <p>Tem certeza de que deseja excluir o produto {productToDelete.nome}?</p>
                             <button onClick={confirmarExclusao}>Sim</button>
                             <button onClick={cancelarExclusao}>Não</button>
@@ -306,7 +316,7 @@ const Produto = ({ product, onDelete, onEdit, onUpdateProduct, products }) => {
                 >
                     <h2>Confirmar Exclusão</h2>
                     {lancamentoToDelete && (
-                        <div>
+                        <div className='modal'>
                             <p>Tem certeza de que deseja excluir o Lancamento?</p>
                             <button onClick={confirmarExclusaoLancamento}>Sim</button>
                             <button onClick={cancelarExclusaoLancamento}>Não</button>

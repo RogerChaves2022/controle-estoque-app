@@ -1,133 +1,252 @@
 /* Estilos gerais da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: bisque;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos do cabeçalho */
-  header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 24px;
-  }
-  
-  /* Estilos da lista de produtos */
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .product {
-    width: 80%;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-  }
-  .product button, .edit-product-form button{
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-  .product, .edit-product-form{
-    background-color: burlywood;
-    width: 120px;
-    height: 280px;
-    font-size: small;
-    text-align: left;
-  }
-  
-  
-  .product h2 {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .edit-product-form {
-    width: 80%;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 4px;
-  }
+  font-family: Arial, sans-serif;
+  background-color: bisque;
+  margin: 0;
+  padding: 0;
+}
 
- .edit-product-form input{
-    margin-top: 3px;
-    margin-bottom: 3px;
-  }
-  
-  .edit-product-form h2 {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .edit-product-form p {
-    font-size: 14px;
-    color: #666;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: 1;
+}
 
-  .edit-product-form button {
-    margin-right: 1em;
-  }
-  /* barra de pesquisa */
-  .barra-pesquisa {
-    border-radius: 5px;
-    text-align: center;
-    width: 50%;
-    margin: 2em;
-    margin-left: 25%;
-    font-size: 1em;
-    padding: 5px;
-  }
+.alerta{
+  height: 5%;
+  width: 60%;
+  text-align: center;
+  padding: 1em;
+  margin: 0em 5em 1em 5em;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: red;
+  font-size: medium;
+  color: white;
+}
+.icon {
+  float: left;
+  margin-right: 5%;
+}
+.alerta button{
+  /* position: absolute; */
+  float: right;
+  border: none;
+  /* border-radius: 100%; */
+  background-color: red;
+  color:white;
+}
+
+/* Estilos do cabeçalho */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+h2 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Estilos da lista de produtos */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.product button,
+.edit-product-form button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.product,
+.edit-product-form {
+  font-size: large;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: burlywood;
+  width: 120px;
+  height: 280px;
+  margin: 1em;
+  font-size: small;
+  text-align: left;
+}
+
+.product-card:hover  {
+  box-shadow: 0 10em 16em rgba(0, 0, 0, 0.2); /* Aumente a sombra quando o usuário passar o mouse sobre o card */
+  cursor: pointer;
+}
+
+.product h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.edit-product-form {
+  width: 150px;
+  height: 300px;
+}
+
+.edit-product-form input {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.edit-product-form h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.edit-product-form p {
+  font-size: 14px;
+  color: #666;
+}
+
+.edit-product-form button {
+  margin-right: 1em;
+}
+
+/* barra de pesquisa */
+.barra-pesquisa {
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  margin: 2em;
+  font-size: 1em;
+  padding: 5px;
+}
+
+/* Estilos do formulário de adição de produto */
+
+.add-product-form {
+  background-color: burlywood;
   
-  /* Estilos do formulário de adição de produto */
-  .add-product-form h2 {
-    text-align: center;
-  }
-  .add-product-form {
-    background-color: burlywood;
-    margin-left: 35%;
-    width: 300px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 4px;
-  }
+  /* margin-left: 35%; */
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.add-product-form label {
+  font-weight: bold;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"] {
+  width: 90%;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-product-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.add-product-form button:hover {
+  background-color: #0056b3;
+}
+
+/* .map{
+  margin-left: 10%;
+  margin-top:1em;
+} */
+
+
+.container-mapa{
+  width: 100%;
+  height: 100%;
   
-  .add-product-form label {
-    font-weight: bold;
-  }
-  
-  .add-product-form input[type="text"],
-  .add-product-form input[type="number"] {
-    width: 90%;
-    padding: 5px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .add-product-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-product-form button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.places-search{
+  margin: 3%;
+  width: 40vh;
+  height: 20%;
+  text-align: center;
+  padding: 2em;
+  border: 2px;
+  border-color: black;
+  background-color: burlywood;
+  border-radius: 2em;
+}
+.places-search input, .places-search select {
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.places-search button{
+  margin-top: 10px;
+  padding: 5px;
+  background-color: bisque;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.area-mapa{
+  border: 4px black solid;
+  border-radius: 10px;
+  margin-left: 3%;
+  width: 100vh;
+  height: 100vh;
+}
+
+.lista-places{
+  /* background-color: grey; */
+  padding: 1px;
+}
+
+.places{
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 2em;
+  background-color: wheat;
+}
+.close-button{
+  float: right;
+}
+.modal button{
+  text-align: center;
+  width: 100%;
+  padding: 2px;
+  margin: 2px;
+}
+
+.sem-resultados-pesquisa{
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 25%;
+}
