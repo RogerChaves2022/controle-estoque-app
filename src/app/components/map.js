@@ -1,9 +1,10 @@
+import { APIProvider, AdvancedMarker, InfoWindow, Map, Pin, useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
-import { APIProvider, Map, AdvancedMarker, Pin, InfoWindow, useMap, useMapsLibrary } from "@vis.gl/react-google-maps"
 //  import {DirectionsRenderer} from '@vis.gl/react-google-maps-hooks';
 // import { DirectionsRenderer } from "@react-google-maps/api";
 import axios from 'axios';
-import '../styles/global.css'
+import '../styles/global.css';
+import { Input } from "./input";
 
 const libraries = ['places', 'routes'];
 const key = 'AIzaSyBejFbwfYUZm0OmKt1Rq7l4jP6rui2XYY4';
@@ -140,26 +141,29 @@ export default function Intro() {
             <APIProvider apiKey={key} libraries={libraries}>
                 <div className="container-mapa">
                     <form className="places-search" onSubmit={handleSearch}>
-                        <h4>Encontre as empresas que estão mais próximo de você!</h4>
-                        <p>Qual endereço da sua empresa?</p>
-                        <input
+                        <h4>Encontre as empresas que estão mais próximas de você!</h4>
+                        <Input
                             type="text"
                             name="endereco"
                             placeholder="Qual endereço de sua empresa?"
                             value={search.endereco}
-                            onChange={handleInputChange}
+                            handleChange={handleInputChange}
+                            label={'Endereço'}
                         />
-                        <br />
-                        <p>Qual classificacao de produto você precisa descartar?</p>
+                        <div>
+                        <br/>
+                        <p>Qual classificacao de produto você gostaria de descartar?</p>
                         <select
                             name="classificacao"
-                            value={search.classificacao}
+                            value={search.classificacao || 0}
                             onChange={handleInputChange}
                         >
+                            <option disabled value="0">Selecione a Classificação</option>
                             {classificacao && classificacao.map((classe)=>
                             <option value={classe}>{classe}</option>
                             )}
-                        </select><br/>
+                        </select>
+                        </div>
                         <button type="submit"  >Buscar</button> 
                         {/* disabled={!isFormValid()} */}
                     </form>

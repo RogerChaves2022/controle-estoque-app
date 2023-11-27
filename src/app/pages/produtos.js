@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from '../api/api-produtos';
-import Produto from '../components/produto';
-import { FaPlusCircle } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import { BsFillXCircleFill } from 'react-icons/bs';
 import { FiAlertTriangle } from "react-icons/fi";
-import {BsFillXCircleFill} from 'react-icons/bs';
+import axios from '../api/api-produtos';
+import { Input } from '../components/input';
+import Produto from '../components/produto';
 const ProdutosPage = () => {
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({ nome: '', classificacao: '', unidadeMedida: '', quantidadeMaxima: null });
@@ -71,41 +71,42 @@ const ProdutosPage = () => {
         ))}
       <div className="add-product-form">
       <h2>Adicionar Produto</h2>
-        <input
-          type="text"
-          placeholder="Nome do Produto"
+        <Input 
           value={newProduct.nome}
-          onChange={(e) => setNewProduct({ ...newProduct, nome: e.target.value })}
+          label={'Nome'}
+          handleChange={e => setNewProduct({ ...newProduct, nome: e.target.value })}
+          placeholder='Nome do Produto'
         />
-        <input
-          type="text"
-          placeholder="Classificação do Produto"
+        <Input 
           value={newProduct.classificacao}
-          onChange={(e) => setNewProduct({ ...newProduct, classificacao: e.target.value })}
+          label={'Classificação'}
+          handleChange={e => setNewProduct({ ...newProduct, classificacao: e.target.value })}
+          placeholder='Classificação do Produto'
         />
-        <input
-          type="text"
-          placeholder="Unidade Medida do Produto"
+        <Input
           value={newProduct.unidadeMedida}
-          onChange={(e) => setNewProduct({ ...newProduct, unidadeMedida: e.target.value })}
+          label={'Unidade de Medida'}
+          placeholder="Unidade de Medida do Produto"
+          handleChange={(e) => setNewProduct({ ...newProduct, unidadeMedida: e.target.value })}
         />
-        <input
+        <Input
           type="number"
           min={1}
-          placeholder="Quantidade Maxima do Produto"
+          label={'Quantidade Máxima'}
+          placeholder="Quantidade Máxima do Produto"
           value={newProduct.quantidadeMaxima}
-          onChange={(e) => setNewProduct({ ...newProduct, quantidadeMaxima: e.target.value })}
+          handleChange={(e) => setNewProduct({ ...newProduct, quantidadeMaxima: e.target.value })}
         />
         <br />
-        <button onClick={handleAddProduct}> <FaPlusCircle /></button>
+        <button onClick={handleAddProduct}> Adicionar</button>
       </div>
       <h2>Lista de Produtos</h2>
-      <input className='barra-pesquisa'
-  type="text"
-  placeholder="Pesquisar produtos..."
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-/><br/>
+      <Input 
+      type="text"
+      placeholder="Pesquisar produtos..."
+      value={searchTerm}
+      handleChange={(e) => setSearchTerm(e.target.value)}
+    /><br/>
 {filteredProducts.length === 0 ? (
   <div className='sem-resultados-pesquisa'>
   <p >Nenhum produto corresponde à pesquisa.</p>

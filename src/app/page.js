@@ -1,9 +1,7 @@
 "use client";
-import ProdutosPage from './pages/produtos'
-import MapContainer from './pages/enderecos';
-import FindLocation from './components/findLocation';
-import { LoadScript, useLoadScript } from '@react-google-maps/api';
+import { Header } from './components/header';
 import Intro from './components/map';
+import ProdutosPage from './pages/produtos';
 
 
 export default function Home() {
@@ -12,9 +10,9 @@ export default function Home() {
 
   return (
     <main>
+      <Header/>
       <ProdutosPage/>
       <Intro />
     </main>
   )
 }
-

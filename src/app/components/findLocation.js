@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { DirectionsRenderer, GoogleMap, LoadScript, Marker , useLoadScript } from '@react-google-maps/api';
+import { DirectionsRenderer, GoogleMap, LoadScript, Marker, useLoadScript } from '@react-google-maps/api';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const libraries = ['places', 'routes'];
 const key = 'AIzaSyBejFbwfYUZm0OmKt1Rq7l4jP6rui2XYY4';
@@ -155,22 +155,21 @@ const FindLocation = () => {
     <LoadScript googleMapsApiKey={key} libraries={libraries}>
       <div className="places-search">
         <h2>Encontre as empresas que estão mais prximo de você com base em qual item você precisa descartar!</h2>
-        <p>Qual endereço da sua empresa e seu descarte?</p>
-        <input
+        <Input
           type="text"
           name="endereco"
           placeholder="Qual endereço de sua empresa?"
           value={search.endereco}
-          onChange={handleInputChange}
+          handleChange={handleInputChange}
+          label={'Qual endereço da sua empresa e seu descarte?'}
         />
-        <br />
-        <p>Qual classificacao precisa descartar?</p>
-        <input
+        <Input
           type="text"
           name='classificacao'
           placeholder="Descarte de Plástico"
           value={search.classificacao}
-          onChange={handleInputChange}
+          handleChange={handleInputChange}
+          label={'Qual classificacao precisa descartar?'}
         />
         <button onClick={handleSearch}>Buscar</button>
         <div className="map">
